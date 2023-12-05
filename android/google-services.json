@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "427710575236",
+    "project_id": "rostagram-5f39c",
+    "storage_bucket": "rostagram-5f39c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427710575236:android:21d8e3955705ce47c688d1",
+        "android_client_info": {
+          "package_name": "com.example.rohagram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxyN0aszbDUajf8S2et7fJDxeiSlAs6mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
