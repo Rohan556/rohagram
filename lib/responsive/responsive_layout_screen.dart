@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:rohagram/providers/user_provider.dart';
 import 'package:rohagram/responsive/mobile_screen_layout.dart';
 import 'package:rohagram/responsive/web_screen_layout.dart';
-import 'package:rohagram/utils/dimensions.dart';
+import 'package:rohagram/utils/global_variable.dart';
 
 class ResponsiveLayout extends StatefulWidget {
   final Widget webScreenLayout;
@@ -23,6 +23,7 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
   @override
   void initState(){
     super.initState();
+
     addData();
   }
 

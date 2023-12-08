@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:rohagram/models/user.dart' as user_model;
 import 'package:rohagram/providers/user_provider.dart';
 import 'package:rohagram/utils/colors.dart';
+import 'package:rohagram/utils/global_variable.dart';
 
 class MobileScreen extends StatefulWidget {
   const MobileScreen({super.key});
@@ -13,13 +14,13 @@ class MobileScreen extends StatefulWidget {
 }
 
 class _MobileScreenState extends State<MobileScreen> {
-  int page = 0;
+  int page = 2;
   late PageController pageController;
 
   @override
   void initState(){
     super.initState();
-    pageController = PageController();
+    pageController = PageController(initialPage: page);
   }
 
   @override
@@ -42,6 +43,7 @@ class _MobileScreenState extends State<MobileScreen> {
   }
 
   handlePageStateChange(int pageNum){
+    print("coming");
     setState(() {
       page = pageNum;
     });
@@ -56,13 +58,7 @@ class _MobileScreenState extends State<MobileScreen> {
           controller: pageController,
           onPageChanged: handlePageStateChange,
           physics: const NeverScrollableScrollPhysics(),
-          children: [
-            Text("home"),
-            Text("search"),
-            Text("add"),
-            Text("notification"),
-            Text("profile"),
-          ],
+          children: HomeScreenPages,
         ),
       ),
       bottomNavigationBar: CupertinoTabBar(
