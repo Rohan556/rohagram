@@ -14,7 +14,7 @@ class MobileScreen extends StatefulWidget {
 }
 
 class _MobileScreenState extends State<MobileScreen> {
-  int page = 2;
+  int page = 0;
   late PageController pageController;
 
   @override
