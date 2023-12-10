@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
         home: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot){
+            print(snapshot.hasData);
             if(snapshot.connectionState == ConnectionState.active){
               if(snapshot.hasData){
                 return const ResponsiveLayout(mobileScreenLayout: MobileScreen(), webScreenLayout: WebScreen());

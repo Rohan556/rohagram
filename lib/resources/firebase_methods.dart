@@ -96,4 +96,31 @@ class FirebaseMethods {
     
     return status;
   }
+
+  Future<String> handleUserFollow(String currentUid,String uid, bool typeFollow) async{
+    String status = "Something went wrong";
+
+    try{
+      if(typeFollow){
+        await _store.collection('users').doc(uid).update({
+          'followers': FieldValue.arrayUnion([currentUid])
+        });
+        await _store.collection('users').doc(currentUid).update({
+          'following': FieldValue.arrayUnion([uid])
+        });
+      }else{
+        await _store.collection('users').doc(uid).update({
+          'followers': FieldValue.arrayRemove([currentUid])
+        });
+        await _store.collection('users').doc(currentUid).update({
+          'following': FieldValue.arrayRemove([uid])
+        });
+      }
+      status = "success";
+    }catch(err){
+      status = err.toString();
+    }
+
+    return status;
+  }
 }

@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rohagram/Widget/text_field.dart';
 import 'package:rohagram/resources/auth_methods.dart';
+import 'package:rohagram/responsive/mobile_screen_layout.dart';
+import 'package:rohagram/responsive/responsive_layout_screen.dart';
+import 'package:rohagram/responsive/web_screen_layout.dart';
 import 'package:rohagram/screens/signup_screen.dart';
 import 'package:rohagram/utils/colors.dart';
+import 'package:rohagram/utils/global_variable.dart';
 import 'package:rohagram/utils/navigation.dart';
-import 'package:rohagram/utils/utils.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -36,7 +39,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (result != 'success') {
       if (!context.mounted) return;
-      showToast(result, context);
+     Navigator.of(context).pushNamedAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => const ResponsiveLayout(mobileScreenLayout: MobileScreen(), webScreenLayout: WebScreen())) as String,
+       (route) => false);
     }
 
     setState(() {
@@ -49,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
+          padding: MediaQuery.of(context).size.width > webScreenSize ? EdgeInsets.symmetric(horizontal: (MediaQuery.of(context).size.width) / 3) : const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

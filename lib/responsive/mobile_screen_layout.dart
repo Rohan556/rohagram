@@ -43,7 +43,6 @@ class _MobileScreenState extends State<MobileScreen> {
   }
 
   handlePageStateChange(int pageNum){
-    print("coming");
     setState(() {
       page = pageNum;
     });

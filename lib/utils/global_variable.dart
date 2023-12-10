@@ -1,13 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rohagram/screens/add_post_screen.dart';
 import 'package:rohagram/screens/feed_screen.dart';
+import 'package:rohagram/screens/profile_screen.dart';
+import 'package:rohagram/screens/search_screen.dart';
 
 const webScreenSize = 600;
 
-const HomeScreenPages = [
+List<Widget> HomeScreenPages = [
   FeedScreen(),
-  Text("search"),
+  SearchScreen(),
   AddPostScreen(),
   Text("notification"),
-  Text("profile"),
+  ProfileScreen(uid: FirebaseAuth.instance.currentUser!.uid,),
 ];
